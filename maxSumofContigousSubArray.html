@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Find max sum of contigous sub array using sliding window</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Find max sum of contigous sub array using sliding window</h1>
+</div>
+<script>
+  function findSum(arr, k){
+    let sum = 0, wholesum = 0, max = 0, start = 0, end = 0;
+    
+    while(end <= arr.length-1){
+      sum = sum + arr[end];
+      if(end >= k-1){
+        max = Math.max(max, sum); 
+        sum = sum - arr[start];
+        start++;       
+      }
+      end++;
+    }
+    return max;
+
+  }
+
+  let arr = [1,2,6,2,4,1];
+  console.log(findSum(arr, 3))
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Find avg of contigous sub array using sliding window</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Find avg of contigous sub array using sliding window</h1>
+</div>
+<script>
+  function findAvg(arr, k){
+    let result = [];
+    let wholesum = 0;
+    let start = 0, end= 0;
+
+    for(end; end < arr.length ; end++){
+      wholesum = wholesum + arr[end];
+      if(end >= k-1){
+        result[start] = wholesum / k;
+        wholesum = wholesum - arr[start];
+        start++;
+      }
+    }
+
+    return result;
+
+  }
+
+  let arr = [1,3,2,6,-1,4,1,8,2];
+  console.log(findAvg(arr, 5))
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Find smallest sub array with given sum</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Find smallest sub array with given sum</h1>
+</div>
+<script>
+  function findSmallSubArr(arr, s){
+    let result = {}, start = 0, end = 0, sum = 0, minCount = Number.MAX_SAFE_INTEGER;
+
+    while(end <= arr.length-1){
+      sum = sum+arr[end];
+       if(sum > s){
+        ++start;
+        let t = arr.slice(start,end+1)
+        result[t.length] = t;
+        minCount = Math.min(minCount,t.length);
+      }else if(sum === s){
+        let t = arr.slice(start,end+1)
+        result[t.length] = t;
+        minCount = Math.min(minCount,t.length);
+        start = end+1;
+        sum = 0;  
+      }
+      end++;
+    }
+
+    return result[minCount];
+
+  }
+
+  let arr = [2,1,5,2,3,5,2,6];
+  console.log(findSmallSubArr(arr, 8))
+</script>
+</body>
+</html>

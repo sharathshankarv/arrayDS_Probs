@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Remove Duplicates from unsorted Array</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Remove Duplicates from unsorted Array</h1>
+</div>
+<script>
 function ValidParanthesis(str){
   let obj = {
     "(":")",
@@ -12,13 +22,19 @@ function ValidParanthesis(str){
       Stack.push(p)
     }else{
       let poped = Stack.pop();
-      debugger
-      if(obj[p] !== poped) {return "Invalid";}
+      if(obj[poped] !== p) {return "Invalid";}
     }
   }
 
   return Stack.length === 0 ? "Valid" : "Invalid";
 
 }
-let str = "[({)]" 
+let str = "[({})]" 
 console.log(ValidParanthesis(str));
+
+</script>
+</body>
+</html>
+
+
+

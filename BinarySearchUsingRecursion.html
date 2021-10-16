@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Binary Search using recursion</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Binary Search using recursion</h1>
+</div>
+<script>
+
+  function BinSearch(a, l, r, x){
+    let mid = Math.floor((r+l)/2);
+    if(a[mid] === x || a[l] === x || a[r] === x) return `Item found at ${mid} location`;
+
+    if(l > r ) return `Item not found`;
+    if(x >= mid)
+      return BinSearch(a, mid+1, r, x);
+    else
+      return BinSearch(a, l, mid-1, x);    
+  }
+
+  function BinarySearch(arr, x){
+    return BinSearch(arr, 0, arr.length, x)
+  }
+  let arr = [1,2,4,5,7,8,12,14,16,19,22,27,29,35,50,61];
+  console.log(BinarySearch(arr, 35))
+</script>
+</body>
+</html>

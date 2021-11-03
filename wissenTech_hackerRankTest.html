@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Wissen technologies hacker rank test</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Wissen technologies hacker rank test</h1>
+    <p>Prob 1, comsole.log</p><br />
+    <p>const a = {o:1};
+      a.o = 2;
+      console.log(a)</p><br />
+      <p>o/p:  function f(){console.log(arguments)}; f([1,2]); f(1,2); f.apply(null,[1,2]) f.call(null,1,2)</p><br />
+      <p>const counter = (initialVal, stepVal) => {
+        var c = initialVal || 0;
+        return function next(){
+          c = c + stepVal;
+          return c;
+        }
+      } 
+      counter(1,1)
+      o/p: 2,2
+    </p><br />
+      <p>
+        const counter = (initialVal, stepVal) => {
+          return {
+            val: initialVal,
+            next(){
+              this.val = this.val + stepVal;
+              return this.val;
+            }
+          }
+        } 
+        const c = counter(0, 2);
+        console.log(c.val, c.next(), c.val);
+
+        o/p: 0,2,2
+      </p><br />
+      <p>
+        var obj = {
+          val: 0,
+          inc(){
+            this.val++;
+            console.log(this.val)
+          }
+        };
+      
+        var inc = obj.inc;
+        inc()
+        inc.call(obj);
+        obj.inc()
+        var obj2 = {val: 2};
+        var inc2 = inc.bind(obj2);
+        inc2()
+
+        o/p: NaN, 1,2,3
+      </p><br />
+      <p>
+        function A(){
+
+        }
+        function B(val){
+          debugger
+          this.valB = val;
+        }
+    
+        B.prototype = Object.create(A.prototype);
+        var b = new B(2);
+        console.log(b.valB);
+        console.log(b.val);
+        A.prototype.val = 1;
+        console.log(b.val);
+
+        o/p: 2, undefined, 1
+      </p><br />
+      <p>
+        function A(id){
+          this.id = id;
+        }
+    
+        A.fn = function(){
+          console.log("in A.fn", this.id);
+        }
+        A.id = "Class A";
+        A.prototype.fn = function(){
+          console.log("in A.prototype fn", this.id);
+        }
+        var a = new A('Object A');
+        a.fn();
+        A.fn();
+
+        o/p: in A.prototype fn Object A in A.fn Class A
+      </p><br />
+      <p>
+
+        let defaultVal = () => 1;
+
+    const fn = (a = defaultVal(), b = require('b')) => {
+      debugger
+      console.log("a, b = ", a, b)
+    }
+
+    try{
+      [{b: "b"}, {a:"a", b:"b"}, {a:"a", b:undefined}].map(fn);
+    }catch(err){
+      console.log(err.message);
+    }
+
+    o/p: 
+    a, b =  {b: 'b'} 0
+    a, b =  {a: 'a', b: 'b'} 1
+    a, b =  {a: 'a', b: undefined} 2
+      </p><br />
+      <p></p><br />
+      <p></p><br />
+      <p></p><br />
+</div>
+<script>
+  // console.log("1" == 1, "1" === 1, Number('01') === 1);
+  // const a = {o:1};
+  //   a.o = 2;
+  //   console.log(a);
+
+  // const counter = (initialVal, stepVal) => {
+  //   return {
+  //     val: initialVal,
+  //     next(){
+  //       this.val = this.val + stepVal;
+  //       return this.val;
+  //     }
+  //   }
+  // } 
+  // const c = counter(0, 2);
+  // console.log(c.val, c.next(), c.val);  
+
+  // var obj = {
+  //   val: 0,
+  //   inc(){
+  //     debugger
+  //     this.val++;
+  //     console.log(this.val)
+  //   }
+  // };
+
+  // var inc = obj.inc;
+  // inc()
+  // inc.call(obj);
+  // obj.inc()
+  // var obj2 = {val: 2};
+  // var inc2 = inc.bind(obj2);
+  // inc2()
+
+    // function A(){
+
+    // }
+    // function B(val){
+    //   debugger
+    //   this.valB = val;
+    // }
+
+    // B.prototype = Object.create(A.prototype);
+    // var b = new B(2);
+    // console.log(b.valB);
+    // console.log(b.val);
+    // A.prototype.val = 1;
+    // console.log(b.val);
+
+    // function A(id){
+    //   this.id = id;
+    // }
+    // A.fn = function(){
+    //   console.log("in A.fn", this.id);
+    // }
+    // A.id = "Class A";
+    // A.prototype.fn = function(){
+    //   console.log("in A.prototype fn", this.id);
+    // }
+    // var a = new A('Object A');
+    // a.fn();
+    // A.fn();
+
+    // let defaultVal = () => 1;
+
+    // const fn = (a = defaultVal(), b = require('b')) => {
+    //   debugger
+    //   console.log("a, b = ", a, b)
+    // }
+
+    // try{
+    //   [{b: "b"}, {a:"a", b:"b"}, {a:"a", b:undefined}].map(fn);
+    // }catch(err){
+    //   console.log(err.message);
+    // }
+
+    const div_p = (x,y)=>Promise.resolve([x,y])
+    .then(div)
+    .catch(err =>["err","err"])
+    .then(([q,r])=>[`quo=${q}`, `rem=${r}`])
+    .finally(()=>[1,1]);
+
+    div_p(1,"0").then(r=>console.log(r));
+    div_p(1,0).then(r=>console.log(r));
+    div_p(2,1).then(r=>console.log(r));
+    div_p(1,2).then(r=>console.log(r));
+</script>
+</body>
+</html>

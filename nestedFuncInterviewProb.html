@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Interview question</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Interview question</h1>
+</div>
+<script>
+  function interViewFunc(a){
+    let k = a && [...arguments].reduce((c,e) =>{return c+e});
+    return function(b){            
+      if(b){
+        let l = [...arguments].reduce((d,e) =>d+e);
+       return interViewFunc(k+l);
+      }else{
+        return k;
+      }      
+    } 
+  }
+
+  console.log(interViewFunc(1,2,3)(2,2)(3)(4)());
+</script>
+</body>
+</html>

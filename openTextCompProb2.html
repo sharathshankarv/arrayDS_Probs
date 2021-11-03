@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Find avg of contigous sub array using sliding window</title>
+    </head>
+<body>
+<div class="parent">
+    <h1>Find avg of contigous sub array using sliding window</h1>
+</div>
+<script>
+  function findAvg(s){
+    const char_A = 'A';
+    let numBs = 0, minDels = 0;
+    for(let c of s){
+      debugger
+        if(c === char_A){
+          minDels = Math.min(numBs, minDels+1);
+        }else{
+            numBs++;
+        }
+    }
+    return minDels
+
+  }
+
+  console.log(findAvg('BAAABAB'));
+  console.log(findAvg('BBABAA'));
+  console.log(findAvg('AABBBB'));
+</script>
+</body>
+</html>

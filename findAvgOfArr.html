@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Sliding tech findAvgofKnum</title>
+    </head>
+<body>
+  <p>Sliding tech find Avg of K num</p>
+  <script>
+    function findSubarr(ar, k){
+      let start = 0, sum = 0;
+      for(let i = 0; i < ar.length; i++){
+        sum = ar[i]+sum;
+        if(sum > k){
+          sum = sum - ar[start];
+          start++;
+        }
+        if(sum === k){
+          return ar.slice(start, i+1);
+        }
+      }
+    }
+
+    console.log(findSubarr([2,7,3,1,5,1,10,6,0,9], 15))
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Minimum Number of Platforms Required for a Railway/Bus Station</title>
+    </head>
+<body>
+<h1>Minimum Number of Platforms Required for a Railway/Bus Station</h1>
+<script>
+function findMinPlatform(a,d){
+    let minPlatform = 1;
+    for(let i = 0; i < a.length; i++){
+        if(a[i+1] > d[i] && i + 1 !== a.length-1){
+            minPlatform++;
+        }
+    }
+    return minPlatform
+}
+//9.00, 9.40, 9.50, 11.00, 15.00, 18.00
+//9.10, 12.00, 11.20, 11.30, 19.00, 20.00
+let a = [900, 940, 950, 1100, 1500, 1800],
+d =  [910, 1200, 1120, 1130, 1900, 2000];
+console.log(findMinPlatform(a,d));
+
+
+</script>
+</body>
+</html>

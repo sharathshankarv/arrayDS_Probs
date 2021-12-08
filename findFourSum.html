@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Find all triplets with zero sum</title>
+    </head>
+<body>
+<p>Find all triplets with zero sum</p>
+<script>
+  function findTriplets(ar){
+    let n = ar.length; 
+    let a = ar.sort();   
+    for(let i = 0; i < n-1; i++){
+      let l = i+1, r = n-1;
+      while(l<r){
+        sum = a[i] + a[l] + a[r];
+        if(sum < 0){
+          l++;
+        }else if(sum > 0){
+          r--;
+        }else if(sum === 0){
+          return [a[i] ,a[l], a[r]]
+        }
+      }
+    }
+  }
+
+  console.log(findTriplets([0, -1, 2, -3, 1]))
+</script>
+
+</body>
+</html>
